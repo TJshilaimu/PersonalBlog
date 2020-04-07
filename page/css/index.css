@@ -1,0 +1,33 @@
+@font-face{
+    font-family:'panda';
+    src:url("../font/glyphicons-halflings-regular.woff2")
+}
+
+.every-day{
+    width:95%;
+    margin:0 auto;
+    border:1px solid gray;
+    padding:10px 15px;
+    border-radius:5px;
+    box-shadow:3px 4px 3px #342334;
+    position: relative;
+}
+.every-day span{
+    display:block;
+    color:#783620;
+}
+
+
+span:before{
+    font-family: panda;
+    position: absolute;
+    top: 11px;
+    left: 75px;
+    content:"\e122";
+
+
+}
+p{
+    /* display:inline-block; */
+    padding:10px 15px;
+}
