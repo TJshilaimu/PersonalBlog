@@ -4,12 +4,13 @@
 }
 
 .every-day{
-    width:95%;
-    margin:0 auto;
+    width:100%;
+    margin:20px auto;
     border:1px solid gray;
     padding:10px 15px;
     border-radius:5px;
     box-shadow:3px 4px 3px #342334;
+    box-sizing: border-box;
     position: relative;
 }
 .every-day span{
@@ -27,7 +28,34 @@ span:before{
 
 
 }
-p{
+.day-con{
     /* display:inline-block; */
     padding:10px 15px;
+}
+
+.blog{
+    width:100%;
+    margin:25px auto 10px auto;
+    background-color:#fff;
+    box-sizing: border-box;
+    position: relative;
+}
+.blog h2{
+    padding:10px 15px;
+    font-weight: 500;
+
+}
+.blog .blog_content{
+   
+    padding:10px 15px;
+    color:#333;
+
+}
+.msg{
+
+    padding:10px 15px;
+    height:30px;
+    line-height:30px;
+    background-color:#222222;
+    color:#eee;
 }
