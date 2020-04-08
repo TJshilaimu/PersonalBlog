@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>个人博客</title>
     <link rel="stylesheet" href="./css/base.css">
-    <link rel = 'stylesheet' href='./css/index.css'>
+    <link rel="stylesheet" href="./css/about.css">
 </head>
 <body>
     <header>
@@ -22,34 +22,68 @@
         </div>
     </header>
     <div class="middle">
-        <div class="content-left">
-            <div class="every-day">
-                <span class = 'day-word'>每日一句</span>
-                <p class = 'day-con'>我爱你，时间没什么了不起
-                </p>
-                <p class = 'day-con'> --------菜篮</p>
+        <div class="content-left" >
+            <div class="about-thing">
+                <div class="about-me">
+                    <h2>关于我</h2>
+                    <p class = 'special'>会修电脑的野生程序员</p>
+                    <p>认为PHP是世界上最好的语言</p>
+                    <p>会修电脑的野生程序员</p>
+                    <p>认为PHP是世界上最好的语言</p>
+                    <p>会修电脑的野生程序员</p>
+                </div>
+                <div class="about-me">
+                    <h2>关于博客</h2>
+                    <p class = 'special'>会修电脑的野生程序员</p>
+                    <p>认为PHP是世界上最好的语言</p>
+                    <p>会修电脑的野生程序员</p>
+                    <p>认为PHP是世界上最好的语言</p>
+                    <p>会修电脑的野生程序员</p>
+                </div>
             </div>
-            <div class="blogList">
-                <div class="blog">
-                    <h2> <a href="/"> Laravel5.4安装passport时遇到的一些问题</a></h2>
-                    <div class="blog_content">安装时可能不支持高版本，我使用了composer require laravel/passport ~4.0安装后执行迁移时nothing to migrate，需要手动注册Provider， 在config/app.php中providers中添加Laravel\Passport\PassportServiceProvider::class。执行php artisan passport:install时提示“There are no commands defined in the “passport” namespace.” 需要执行cache:clear和config:cache 更新缓存。...</div>
-                    <div class="msg">发布于2019-12-06 |  浏览(5,474) | Tags：laravel</div>
+
+
+            <div class="guestbook">
+                <p>关于：目前有200条留言</p>
+                <div class = 'guestbook-item'>
+                    <p class="username">园长瓜：发表于 2019年12月18日 21:53[回复]</p>
+                    <div class="guestbook-detail">
+                        你的留言板是真的酷炫
+                    </div>
                 </div>
-                <div class="blog">
-                    <h2> <a href="/"> Laravel5.4安装passport时遇到的一些问题</a></h2>
-                    <div class="blog_content">安装时可能不支持高版本，我使用了composer require laravel/passport ~4.0安装后执行迁移时nothing to migrate，需要手动注册Provider， 在config/app.php中providers中添加Laravel\Passport\PassportServiceProvider::class。执行php artisan passport:install时提示“There are no commands defined in the “passport” namespace.” 需要执行cache:clear和config:cache 更新缓存。...</div>
-                    <div class="msg">发布于2019-12-06 |  浏览(5,474) | Tags：laravel</div>
+                <div class = 'guestbook-item'>
+                    <p class="username">园长瓜：发表于 2019年12月18日 21:53[回复]</p>
+                    <div class="guestbook-detail">
+                        你的留言板是真的酷炫
+                    </div>
                 </div>
-                <div class="blog">
-                    <h2> <a href="/"> Laravel5.4安装passport时遇到的一些问题</a></h2>
-                    <div class="blog_content">安装时可能不支持高版本，我使用了composer require laravel/passport ~4.0安装后执行迁移时nothing to migrate，需要手动注册Provider， 在config/app.php中providers中添加Laravel\Passport\PassportServiceProvider::class。执行php artisan passport:install时提示“There are no commands defined in the “passport” namespace.” 需要执行cache:clear和config:cache 更新缓存。...</div>
-                    <div class="msg">发布于2019-12-06 |  浏览(5,474) | Tags：laravel</div>
+                <div class = 'guestbook-item'>
+                    <p class="username">园长瓜：发表于 2019年12月18日 21:53[回复]</p>
+                    <div class="guestbook-detail">
+                        你的留言板是真的酷炫
+                    </div>
                 </div>
-                <div class="blog">
-                    <h2> <a href="/"> Laravel5.4安装passport时遇到的一些问题</a></h2>
-                    <div class="blog_content">安装时可能不支持高版本，我使用了composer require laravel/passport ~4.0安装后执行迁移时nothing to migrate，需要手动注册Provider， 在config/app.php中providers中添加Laravel\Passport\PassportServiceProvider::class。执行php artisan passport:install时提示“There are no commands defined in the “passport” namespace.” 需要执行cache:clear和config:cache 更新缓存。...</div>
-                    <div class="msg">发布于2019-12-06 |  浏览(5,474) | Tags：laravel</div>
+                <div class = 'guestbook-item'>
+                    <p class="username">园长瓜：发表于 2019年12月18日 21:53[回复]</p>
+                    <div class="guestbook-detail">
+                        你的留言板是真的酷炫
+                    </div>
                 </div>
+                <div class = 'guestbook-item'>
+                    <p class="username">园长瓜：发表于 2019年12月18日 21:53[回复]</p>
+                    <div class="guestbook-detail">
+                        你的留言板是真的酷炫
+                    </div>
+                </div>
+            </div>
+
+            <div class="send-comment">
+                <p>发表评论</p>
+                <input type="text" placeholder="昵称" class = 'user'>
+                <input type="text" class= "email" placeholder="邮箱（用于收被回复时的通知）">
+                <textarea name="idea" id="" cols="30" rows="10"></textarea>
+                <input type="text" placeholder="验证码">
+                <div><button>提交留言</button></div>
             </div>
         </div>
         <div class="content-right">

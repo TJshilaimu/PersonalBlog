@@ -1,0 +1,81 @@
+
+*{
+    margin:0;
+    padding:0;
+}
+.message{
+    width:100%;
+    /* padding:20px 10px; */
+    background-color: #eee;
+    border:1px solid gray;
+    box-shadow:2px 3px 3px #333;
+    /* box-sizing: border-box; */
+    border-radius:5px;
+    box-sizing: border-box;
+}
+.message>p{
+    padding:20px 15px;
+}
+
+
+
+
+.guestbook{
+    width:100%;
+    /* box-sizing: border-box; */
+}
+ .guestbook>p{
+    padding:20px 0px;
+    font-size:19px;
+ }
+ .guestbook-item{
+    margin:20px auto;
+box-sizing: border-box;
+     width:100%;
+     background-color: #d9edf7;
+     border:1px dotted blue;
+     padding:10px;
+     color:#31708f;
+ }
+ .guestbook-item .guestbook-detail{
+    padding:20px;
+ }
+
+ .send-comment{
+     width:100%;
+     box-sizing: border-box;
+     margin:20px auto;
+     border:1px solid gray;
+     box-shadow:2px 2px 3px #333;
+     background-color: #eee;
+     padding:10px 10px 25px 10px;
+ }
+ .send-comment>p{
+     padding:20px 15px;
+ }
+ .send-comment input{
+margin:15px;
+height:30px;
+padding: 5px 10px;
+border-radius: 5px;
+border:1px solid gray;
+ }
+ .send-comment .email{
+     width:250px;
+ }
+ .send-comment textarea{
+margin-left:15px;
+
+     width:95%;
+     height:100px;
+ }
+ .send-comment button{
+     width:100px;
+     height:40px;
+     font-size: 18px;
+     padding:5px 8px;
+     outline: none;
+     cursor: pointer;
+margin:15px;
+
+ }

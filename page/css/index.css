@@ -1,61 +1,75 @@
-@font-face{
-    font-family:'panda';
-    src:url("../font/glyphicons-halflings-regular.woff2")
+@font-face {
+    font-family: 'panda';
+    src: url("../font/glyphicons-halflings-regular.woff2")
 }
 
-.every-day{
-    width:100%;
-    margin:20px auto;
-    border:1px solid gray;
-    padding:10px 15px;
-    border-radius:5px;
-    box-shadow:3px 4px 3px #342334;
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.every-day {
+    width: 100%;
+    margin: 20px auto;
+    border: 1px solid gray;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 3px 4px 3px #342334;
     box-sizing: border-box;
     position: relative;
 }
-.every-day span{
-    display:block;
-    color:#783620;
+
+.every-day .day-word {
+    display: block;
+    color: #783620;
 }
 
 
-span:before{
+.day-word:before {
     font-family: panda;
     position: absolute;
     top: 11px;
     left: 75px;
-    content:"\e122";
+    content: "\e122";
 
 
 }
-.day-con{
-    /* display:inline-block; */
-    padding:10px 15px;
+
+.day-con {
+    padding: 10px 15px;
 }
 
-.blog{
-    width:100%;
-    margin:25px auto 10px auto;
-    background-color:#fff;
+.blogList {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.blog {
+    border: 2px solid gray;
+    width: 100%;
+    margin: 25px auto 10px auto;
+    background-color: #fff;
     box-sizing: border-box;
     position: relative;
 }
-.blog h2{
-    padding:10px 15px;
+
+.blog h2 {
+    padding: 10px 15px;
     font-weight: 500;
-
 }
-.blog .blog_content{
-   
-    padding:10px 15px;
-    color:#333;
 
+.blog .blog_content {
+    padding: 10px 15px;
+    color: #333;
 }
-.msg{
 
-    padding:10px 15px;
-    height:30px;
-    line-height:30px;
-    background-color:#222222;
-    color:#eee;
+.msg {
+    width: 100%;
+    border: 1px solid #222;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 10px 15px;
+    padding-bottom: 12px;
+    background-color: #222222;
+    color: #eee;
 }
