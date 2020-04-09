@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./wangEditor.css">
+</head>
+<body>
+    <div id="content"></div>
+    <button onclick="submit()">提交</button>
+    <script src="./wangEditor.js"></script>
+    <script>
+        var E = window.wangEditor;
+        var editor = new E('#content');
+        editor.customConfig.uploadImgShowBase64 = true;   // 使用 base64 保存图片
+        editor.create();
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href=".//wangEditor/wangEditor.css">
+    <script src=".//wangEditor/wangEditor.js"></script>
+</head>
+<body>
+    <h2>文章编辑</h2>
+    <input type="text" placeholder="昵称">
+    <input type="text" placeholder="输入标签，用逗号隔开">
+    <!-- 以下是富文本内容 -->
+    <div id="content"></div>
+    <button onclick="submit()">提交</button>
+   
+    <script>
+        var E = window.wangEditor;
+        var editor = new E('#content');
+        editor.customConfig.uploadImgShowBase64 = true;   // 使用 base64 保存图片
+        editor.create();
+    </script>
+</body>
+</html>

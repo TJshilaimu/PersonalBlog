@@ -43,38 +43,15 @@
             </div>
 
 
-            <div class="guestbook">
+            <div class="guestbook" id = "guestbook">
                 <p>关于：目前有200条留言</p>
-                <div class = 'guestbook-item'>
-                    <p class="username">园长瓜：发表于 2019年12月18日 21:53[回复]</p>
+                <div class = 'guestbook-item' v-for = "item in guestbook_list">
+                    <p class="username">{{item.name}}：发表于 {{item.ctime}}[回复]</p>
                     <div class="guestbook-detail">
-                        你的留言板是真的酷炫
+                        {{item.content}}
                     </div>
                 </div>
-                <div class = 'guestbook-item'>
-                    <p class="username">园长瓜：发表于 2019年12月18日 21:53[回复]</p>
-                    <div class="guestbook-detail">
-                        你的留言板是真的酷炫
-                    </div>
-                </div>
-                <div class = 'guestbook-item'>
-                    <p class="username">园长瓜：发表于 2019年12月18日 21:53[回复]</p>
-                    <div class="guestbook-detail">
-                        你的留言板是真的酷炫
-                    </div>
-                </div>
-                <div class = 'guestbook-item'>
-                    <p class="username">园长瓜：发表于 2019年12月18日 21:53[回复]</p>
-                    <div class="guestbook-detail">
-                        你的留言板是真的酷炫
-                    </div>
-                </div>
-                <div class = 'guestbook-item'>
-                    <p class="username">园长瓜：发表于 2019年12月18日 21:53[回复]</p>
-                    <div class="guestbook-detail">
-                        你的留言板是真的酷炫
-                    </div>
-                </div>
+                
             </div>
 
             <div class="send-comment">
@@ -87,17 +64,11 @@
             </div>
         </div>
         <div class="content-right">
-            <div class="random_tag">
+            <div class="random_tag" id = "random_tag">
                 <p class = 'tag-title'>随机标签云</p>
-                <a href="/">zcx</a>
-                <a href="/">zccccccrrrrrrrrrrrrrrrcccccccccccccx</a>
-                <a href="/">zcccccccccccx</a>
-                <a href="/">zccccccccx</a>
-                <a href="/">zcccccccccx</a>
-                <a href="/">zcx</a>
-                <a href="/">zccccccccx</a>
+             <a href="/" v-for = "tag in tag_list" :style = "{color:colorRandom(),fontSize:sizeRandom()}">{{tag}}</a>
             </div>
-            <div class="new-hot">
+            <div class="new-hot" id="new_hot">
                 <div class='hot-title'>最近热门</div>
                 <ul>
                     <li><a href = '/'>使用码云git的webhook实现生产环境代</a></li>
@@ -111,7 +82,7 @@
                     <li><a href = '/'>使用码云git的webhook实现生产环境代</a></li>
                 </ul>
             </div>
-            <div class="new_comment">
+            <div class="new_comment" id = "new_comment">
                 <div class="comment_title">最新评论</div>
                 <ul class = comment_list>
                     <li>
@@ -163,5 +134,8 @@
         <a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a>
         <p>Copyright © 2010-2020 陈磊个人博客 All rights reserved. 由免费开源的WordPress强力驱动. 鲁ICP备14017955号站长统计</p>
     </footer>
+    <script src="./js/vue.js"></script>
+    <script src="./js/base.js"></script>
+    <script src="./js/about.js"></script>
 </body>
 </html>
