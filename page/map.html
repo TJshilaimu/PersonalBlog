@@ -11,18 +11,13 @@
         陈磊's个人博客
     </div>
     <div class="nav"><a href = '/index.html'><b>陈磊个人博客</b></a> >> 站点地图</div>
-    <div class="blog-list">
+    <div class="blog-list" id="map">
         <h2>最新文章</h2>
         <ul>
-            <li>redis命令笔记</li>
-            <li>redis命令笔记</li>
-            <li>redis命令笔记</li>
-            <li>redis命令笔记</li>
-            <li>redis命令笔记</li>
-            <li>redis命令笔记</li>
-            <li>redis命令笔记</li>
-            <li>redis命令笔记</li>
+            <li v-for = "blog in blog_list">{{blog}}</li>
         </ul>
     </div>
+    <script src="./js/vue.js"></script>
+    <script src="./js/map.js"></script>
 </body>
 </html>

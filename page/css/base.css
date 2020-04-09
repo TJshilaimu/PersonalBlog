@@ -101,10 +101,11 @@ header>ul > li > a {
 .random_tag a{
     margin:10px 0;
     color:pink;
+    display: inline-block;
     text-decoration:none;
     margin-right:8px;
-    white-space: nowrap;
-    word-break: break-all;
+    /* white-space: nowrap;
+    word-break: break-all; */
 }
 
 .content-right .new-hot{
