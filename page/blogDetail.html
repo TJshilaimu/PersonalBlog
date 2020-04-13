@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人博客</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/blogDetail.css">
+</head>
+
+<body>
+    <header>
+        <a href="/" class='main'>陈磊个人博客|技术博客</a>
+        <ul>
+            <li><a href="/">首页</a></li>
+            <li><a href="/map.html">地图</a></li>
+            <li><a href="/about.html">关于</a></li>
+            <li><a href="/guestbook.html">留言</a></li>
+        </ul>
+        <div class="searchBar">
+            <input type="text" placeholder="请输入关键字查找" class='search'>
+            <button class='submit'>搜索</button>
+        </div>
+    </header>
+    <div class="middle">
+        <div class="content-left">
+            <div class="blogDetail" id="detail">
+                <div class="describe">
+                    <span>当前位置： <a href="/" style="text-decoration: none;">博客首页</a> >> 阅读正文</span>
+                    <h2>{{title}}</h2>
+                    <p>作者: 郑晓 分类: 片言碎语 发布于: {{ctime}}浏览 {{views}}</p>
+                </div>
+                <div class="content" v-html="content">
+                </div>
+            </div>
+
+            <div class="guestbook" id="guestbook">
+                <p>关于：目前有{{total}}条留言</p>
+                <div class='guestbook-item' v-for="item in guestbook_list">
+                    <p class="username">{{item.user_name}}：{{item.options}}发表于 {{item.ctime}} <span style="cursor: pointer;" @click="huiFu(item.id,item.user_name)">[回复]</span></p>
+                    <div class="guestbook-detail">
+                        {{item.content}}
+                    </div>
+                </div>
+            </div>
+            <div class="send-comment" id = "send_comment">
+                <p>发表评论</p>
+                <input type="hidden" id = "reply" value = "-1">
+                <input type="hidden" id = "reply_name" value = '0'>
+                <input type="text" placeholder="昵称" id="name" class='user'>
+                <input type="text" class="email" id="email" placeholder="邮箱（用于收被回复时的通知）">
+                <textarea name="idea" id="comment" placeholder="无意义的内容我可能不会回复你"></textarea>
+                <input type="text" id="setName" placeholder="验证码">
+                <span class='randomCode' v-html ='vCode' @click='getCode'></span>
+                <div><button @click="submit">提交留言</button></div>
+            </div>
+        </div>
+        <div class="content-right">
+            <div class="random_tag" id = "random_tag">
+                <p class = 'tag-title'>随机标签云</p>
+             <a  v-for = "tag in tag_list" v-bind:href="tag.link"  :style = "{color:colorRandom(),fontSize:sizeRandom()}" >
+                 {{tag.tag}}</a>
+            </div>
+            <div class="new-hot" id="new_hot">
+                <div class='hot-title'>最近热门</div>
+                <ul>
+                    <li v-for = "hot in hot_list"><a :href = 'hot.link'>{{hot.title}}</a></li>
+                </ul>
+            </div>
+            <div class="new_comment" id = "new_comment">
+                <div class="comment_title">最新评论</div>
+                <ul class = comment_list>
+                    <li v-for = "item in comment_list">
+                        <div class = 'user'>
+                            <span class= 'name'>{{item.user_name}}</span>
+                            <span class="ctime">{{item.ctime}}</span>
+                        </div>
+                        <p class="some_comment">{{item.content}}</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="friend-link">
+                <p>友情链接</p>
+                <ul>
+                    <li>挨踢茶馆</li>
+                    <li>挨踢茶馆</li>
+                    <li>挨踢茶馆</li>
+                    <li>挨踢茶馆</li>
+                    <li>挨踢茶馆</li>
+                    <li>挨踢茶馆</li>
+                    <li>挨踢茶馆</li>
+                    <li>挨踢茶馆</li>
+                    <li>挨踢茶馆</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a
+            href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a
+            href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a
+            href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a
+            href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a
+            href="/">Java</a><a href="/">Java</a>
+        <p>Copyright © 2010-2020 陈磊个人博客 All rights reserved. 由免费开源的WordPress强力驱动. 鲁ICP备14017955号站长统计</p>
+    </footer>
+    <script src="./js/vue.js"></script>
+    <script src="./js/axios.js"></script>
+    <script src="./js/base.js"></script>
+    <script src="./js/blogDetail.js"></script>
+</body>
+
+</html>

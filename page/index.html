@@ -25,27 +25,32 @@
         <div class="content-left">
             <div class="every-day" id ='day'>
                 <span class = 'day-word' >每日一句</span>
-                <p class = 'day-con'>{{msg}}</p>
+                <pre class = 'day-con' v-html = "getDay"></pre>
             </div>
             <div class="blogList" id = "blogList">
                 <div class="blog" v-for="blog in blog_list">
-                    <h2> <a href="/"> {{blog.title}}</a></h2>
+                    <h2> <span  @click = "toDetail(blog.id)" style="cursor:pointer;"> {{blog.title}}</span></h2>
                     <div class="blog_content">{{blog.content}}</div>
                     <div class="msg">发布于{{blog.ctime}} |  浏览({{blog.views}}) | Tags：{{blog.tags}}</div>
                 </div>
-               
+            </div>
+            <div class="pageList" id = "pageList">
+                <ul>
+                    <li v-for= "(item,index) in page_list" @click="changePage(index)">{{item}}</li>
+                    
+                </ul>
             </div>
         </div>
         <div class="content-right">
             <div class="random_tag" id = "random_tag">
                 <p class = 'tag-title'>随机标签云</p>
-             <a href="/" v-for = "tag in tag_list" :style = "{color:colorRandom(),fontSize:sizeRandom()}">{{tag}}</a>
+             <a  v-for = "tag in tag_list" v-bind:href="tag.link"  :style = "{color:colorRandom(),fontSize:sizeRandom()}" >
+                 {{tag.tag}}</a>
             </div>
             <div class="new-hot" id="new_hot">
                 <div class='hot-title'>最近热门</div>
                 <ul>
-                    <li v-for = "hot in hot_list"><a href = '/'>{{hot}}</a></li>
-                    
+                    <li v-for = "hot in hot_list"><a :href = 'hot.link'>{{hot.title}}</a></li>
                 </ul>
             </div>
             <div class="new_comment" id = "new_comment">
@@ -53,7 +58,7 @@
                 <ul class = comment_list>
                     <li v-for = "item in comment_list">
                         <div class = 'user'>
-                            <span class= 'name'>{{item.userName}}</span>
+                            <span class= 'name'>{{item.user_name}}</span>
                             <span class="ctime">{{item.ctime}}</span>
                         </div>
                         <p class="some_comment">{{item.content}}</p>
@@ -80,6 +85,7 @@
         <a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a>
         <p>Copyright © 2010-2020 陈磊个人博客 All rights reserved. 由免费开源的WordPress强力驱动. 鲁ICP备14017955号站长统计</p>
     </footer>
+    <script src="./js/axios.js"></script>
     <script src="./js/vue.js"></script>
     <script src="./js/blog.js"></script>
     <script src="./js/base.js"></script>

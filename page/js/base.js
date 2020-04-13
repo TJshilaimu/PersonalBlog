@@ -1,8 +1,20 @@
 var randomTags = new Vue({
     el: "#random_tag",
     data: {
-        tag_list: ['zxc', 'erwrwer', 'dfsf', 'gdfg', 'cbbvvvvvvvvvv', 'aaaaaaaaaaaaa', 'dfsdfsdf', 'zxc', 'erwrwer', 'dfsf', 'gdfg', 'cbbvvvvvvvvvv', 'aaaaaaaaaaaaa', 'dfsdfsdf']
+        tag_list: [],
     },
+    methods:{
+        // tickTag(tagId){
+        //     axios({
+        //         url:'queryBlogByTagId?tagId=' + tagId,
+        //         method:'get',
+        //     }).then(function(resp){
+        //         resp.data
+        //     })
+        // }
+    },
+
+
     computed: {
         colorRandom: function () {
             return function () {
@@ -17,6 +29,19 @@ var randomTags = new Vue({
                 return Math.random() * 18 + 8 + "px";
             }
         }
+    },
+    created(){
+        axios({
+            method:'get',
+            url:'/queryAllTags'
+        }).then(function(resp){
+       
+          randomTags.tag_list = resp.data;
+          for(var i = 0;i<randomTags.tag_list.length;i++){
+            randomTags.tag_list[i].link ="/?tag="+ randomTags.tag_list[i].tag;
+           }
+        
+        })
     }
 })
 
@@ -24,43 +49,33 @@ var randomTags = new Vue({
 var newHot = new Vue({
     el: "#new_hot",
     data: {
-        hot_list: ['使用码云git的webhook实现生产环境代', '使用码云git的webhook实现生产环境代', '使用码云git的webhook实现生产环境代', '使用码云git的webhook实现生产环境代', '使用码云git的webhook实现生产环境代', '使用码云git的webhook实现生产环境代']
+        hot_list: []
+    },
+    created(){
+        axios({
+            url:'queryBlogByViews',
+            method:'get'
+        }).then(function(resp){
+            newHot.hot_list = resp.data;
+            for(let i= 0;i<newHot.hot_list.length;i++){
+                newHot.hot_list[i].link ="/blogDetail.html?id="+ newHot.hot_list[i].id
+            }
+        })
     }
 })
 
 var newComment = new Vue({
     el: "#new_comment",
     data: {
-        comment_list: [{
-                userName: 'hi',
-                ctime: '2020-4-8',
-                content: '你好呀，这是最近留言'
-            },
-            {
-                userName: 'hi',
-                ctime: '2020-4-8',
-                content: '你好呀，这是最近留言'
-            },
-            {
-                userName: 'hi',
-                ctime: '2020-4-8',
-                content: '你好呀，这是最近留言'
-            },
-            {
-                userName: 'hi',
-                ctime: '2020-4-8',
-                content: '你好呀，这是最近留言'
-            },
-            {
-                userName: 'hi',
-                ctime: '2020-4-8',
-                content: '你好呀，这是最近留言'
-            },
-            {
-                userName: 'hi',
-                ctime: '2020-4-8',
-                content: '你好呀，这是最近留言'
-            }
-        ]
+        comment_list: []
+    },
+    created(){
+        axios({
+            url:'/queryCommentByCtime',
+            method:'get'
+        }).then(function(resp){
+            newComment.comment_list=resp.data;
+        })
+
     }
 })
