@@ -5,14 +5,11 @@ let loader = require('./loader');var bodyParser = require("body-parser");
 var jsonParser = bodyParser.json();
 app.use(express.static('./' + globalConfig["page_path"]));
 app.listen(12312);
-
 app.get('/insertEveryday',loader.get('/insertEveryday'));
 app.get('/selectEveryday',loader.get('/selectEveryday')); 
-
 app.post('/insertBlog',jsonParser,loader.get('/insertBlog'));
 app.get('/queryBlogByPage',loader.get('/queryBlogByPage'));
 app.get('/queryBlogByCount',loader.get('/queryBlogByCount'));
-
 app.get('/queryBlogById',loader.get('/queryBlogById'));
 
 app.get('/insertComment',loader.get('/insertComment'));

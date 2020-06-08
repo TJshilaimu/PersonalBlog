@@ -8,8 +8,8 @@ function getTime(){
     var time1 = date.toLocaleDateString();
     
     console.log(time1)
-     return year + "年" + month + "月" + day + "日"
+     return time1 +' '+ time;
 }
 
-// module.exports = getTime;
+module.exports = getTime;
 // getTime();

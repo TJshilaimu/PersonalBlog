@@ -2,10 +2,11 @@ var path = new Map();
 var commentDao = require('../dao/commentDao');
 const url = require('url');
 var captcha = require('svg-captcha');
+var uniteTime = require('../page/unite/uniteTime')
 
 function insertComment(req, res) {
     var params = url.parse(req.url, true).query;
-    commentDao.insertComment(params.name, params.comment, 2020, 2021, params.bid, params.parent, params.email, params.parentName, function (result) {
+    commentDao.insertComment(params.name, params.comment, uniteTime(), 2021, params.bid, params.parent, params.email, params.parentName, function (result) {
         res.writeHead(200);
         res.write("oookkkk");
         res.end();

@@ -17,7 +17,7 @@ var detail = new Vue({
                     method: 'get',
                     url: '/queryBlogById?id=' + id
                 }).then(function (resp) {
-                    console.log(resp);
+                    // console.log(resp);
                     detail.content = resp.data[0].content;
                     detail.title = resp.data[0].title;
                     detail.views = resp.data[0].views;
@@ -42,7 +42,7 @@ var guest = new Vue({
             url: '/queryCommentByBid?bid=' + detail.bid,
             method: 'get'
         }).then(function (resp) {
-            console.log(resp)
+            // console.log(resp)
             guest.guestbook_list=[...resp.data];
             for(var i = 0 ; i < guest.guestbook_list.length ; i++){
                 if(guest.guestbook_list[i].parent > 0){

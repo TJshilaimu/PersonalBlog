@@ -1,6 +1,7 @@
 var path = new Map();
 var blogDao = require('../dao/blogDao');
 let tagsDao = require('../dao/tagsDao');
+var uniteTime = require('../page/unite/uniteTime');
 let insertTagBlogMappingDao = require('../dao/tagBlogMappingDao');
 var url = require('url');
 
@@ -10,7 +11,7 @@ function insertBlog(req, res) {
     // console.log(req.body)
     // req.on("data", function (data) {
     // var data = JSON.parse(data.toString());
-    blogDao.insertBlog(req.body.title, req.body.content, 12, req.body.tags, 2020, 2021, function (result) {
+    blogDao.insertBlog(req.body.title, req.body.content, 12, req.body.tags, uniteTime(), 2021, function (result) {
         res.writeHead(200);
         res.write('ok');
         res.end();
@@ -31,19 +32,19 @@ function queryTags(tag, blog_id) {
         if (result == null || result.length == 0) {
             insertTag(tag, blog_id);
         } else {
-            insertTagBlogMappingDao.insertTagBlogMapping(result[0].id, blog_id, 2020, 2020, function (result) {});
+            insertTagBlogMappingDao.insertTagBlogMapping(result[0].id, blog_id, uniteTime(), 2020, function (result) {});
         }
     })
 }
 
 function insertTag(tag, blog_id) {
-    tagsDao.insertTags(tag, 2020, function (result) {
+    tagsDao.insertTags(tag, uniteTime(), function (result) {
         insertTagBlogMapping(result.insertId, blog_id);
     })
 }
 
 function insertTagBlogMapping(tag_id, blog_id) {
-    insertTagBlogMappingDao.insertTagBlogMapping(tag_id, blog_id, 2020, 2020, function (result) {});
+    insertTagBlogMappingDao.insertTagBlogMapping(tag_id, blog_id, uniteTime(), 2020, function (result) {});
 }
 
 
