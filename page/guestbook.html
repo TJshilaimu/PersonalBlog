@@ -31,80 +31,48 @@
                     <p style = "color:red;">不要皮，谢谢。</p>
 
             </div>
-            <div class="guestbook" id = "guestbook">
-                <p>关于：目前有300条留言</p>
-                <div class='guestbook-item' v-for = "item in guestbook_list">
-                    <p class="username">{{item.user}}：发表于 {{item.ctime}}[回复]</p>
+            <div class="guestbook" id="guestbook">
+                <p>关于：目前有{{total}}条留言</p>
+                <div class='guestbook-item' v-for="item in guestbook_list">
+                    <p class="username">{{item.user_name}}：{{item.options}}发表于 {{item.ctime}} <span style="cursor: pointer;" @click="huiFu(item.id,item.user_name)">[回复]</span></p>
                     <div class="guestbook-detail">
                         {{item.content}}
                     </div>
                 </div>
             </div>
-            <div class="send-comment">
+            <div class="send-comment" id = "send_comment">
                 <p>发表评论</p>
-                <input type="text" placeholder="昵称" class='user'>
-                <input type="text" class="email" placeholder="邮箱（用于收被回复时的通知）">
-                <textarea name="idea" id="" cols="30" rows="10"></textarea>
-                <input type="text" placeholder="验证码">
-                <div><button>提交留言</button></div>
+                <input type="hidden" id = "reply" value = "-1">
+                <input type="hidden" id = "reply_name" value = '0'>
+                <input type="text" placeholder="昵称" id="name" class='user'>
+                <input type="text" class="email" id="email" placeholder="邮箱（用于收被回复时的通知）">
+                <textarea name="idea" id="comment" placeholder="无意义的内容我可能不会回复你"></textarea>
+                <input type="text" id="setName" placeholder="验证码">
+                <span class='randomCode' v-html ='vCode' @click='getCode'></span>
+                <div><button @click="submit">提交留言</button></div>
             </div>
         </div>
         <div class="content-right">
             <div class="random_tag" id = "random_tag">
                 <p class = 'tag-title'>随机标签云</p>
-             <a href="/" v-for = "tag in tag_list" :style = "{color:colorRandom(),fontSize:sizeRandom()}">{{tag}}</a>
+             <a  v-for = "tag in tag_list" v-bind:href="tag.link"  :style = "{color:colorRandom(),fontSize:sizeRandom()}" >
+                 {{tag.tag}}</a>
             </div>
-            <div class="new-hot" id = "new_hot">
+            <div class="new-hot" id="new_hot">
                 <div class='hot-title'>最近热门</div>
                 <ul>
-                    <li><a href='/'>使用码云git的webhook实现生产环境代</a></li>
-                    <li><a href='/'>使用码云git的webhook实现生产环境代</a></li>
-                    <li><a href='/'>使用码云git的webhook实现生产环境代</a></li>
-                    <li><a href='/'>使用码云git的webhook实现生产环境代</a></li>
-                    <li><a href='/'>使用码云git的webhook实现生产环境代</a></li>
-                    <li><a href='/'>使用码云git的webhook实现生产环境代</a></li>
-                    <li><a href='/'>使用码云git的webhook实现生产环境代</a></li>
-                    <li><a href='/'>使用码云git的webhook实现生产环境代</a></li>
-                    <li><a href='/'>使用码云git的webhook实现生产环境代</a></li>
+                    <li v-for = "hot in hot_list"><a :href = 'hot.link'>{{hot.title}}</a></li>
                 </ul>
             </div>
             <div class="new_comment" id = "new_comment">
                 <div class="comment_title">最新评论</div>
-                <ul class=comment_list>
-                    <li>
-                        <div class='user'>
-                            <span class='name'>hi</span>
-                            <span class="ctime">2020-4-8</span>
+                <ul class = comment_list>
+                    <li v-for = "item in comment_list">
+                        <div class = 'user'>
+                            <span class= 'name'>{{item.user_name}}</span>
+                            <span class="ctime">{{item.ctime}}</span>
                         </div>
-                        <p class="some_comment">你好呀，这是最新留言</p>
-                    </li>
-                    <li>
-                        <div class='user'>
-                            <span class='name'>hi</span>
-                            <span class="ctime">2020-4-8</span>
-                        </div>
-                        <p class="some_comment">你好呀，这是最新留言</p>
-                    </li>
-                    <li>
-                        <div class='user'>
-                            <span class='name'>hi</span>
-                            <span class="ctime">2020-4-8</span>
-                        </div>
-                        <p class="some_comment">你好呀，这是最新留言</p>
-                    </li>
-                    <li>
-                        <div class='user'>
-                            <span class='name'>hi</span>
-                            <span class="ctime">2020-4-8</span>
-                        </div>
-                        <p class="some_comment">你好呀，这是最新留言</p>
-                    </li>
-                    <li>
-                        <div class='user'>
-                            <span class='name'>hi</span>
-                            <span class="ctime">2020-4-8</span>
-                        </div>
-                        <p class="some_comment">你好呀，这是最新留言</p>
+                        <p class="some_comment">{{item.content}}</p>
                     </li>
                 </ul>
             </div>
@@ -134,6 +102,7 @@
         <p>Copyright © 2010-2020 陈磊个人博客 All rights reserved. 由免费开源的WordPress强力驱动. 鲁ICP备14017955号站长统计</p>
     </footer>
     <script src="./js/vue.js"></script>
+    <script src="./js/axios.js"></script>
     <script src="./js/base.js"></script>
     <script src="./js/guestbook.js"></script>
 </body>

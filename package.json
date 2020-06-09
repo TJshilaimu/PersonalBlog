@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/TJshilaimu/personalBlog#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "svg-captcha": "^1.4.0"
   }
 }
