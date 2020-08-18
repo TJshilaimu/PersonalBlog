@@ -9,4 +9,5 @@ var createConnection = function(){
     });
     return connection;
 }
+// console.log(createConnection())
 module.exports.createConnection = createConnection;

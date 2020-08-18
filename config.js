@@ -2,6 +2,7 @@
 var fs = require('fs');
 
 var files= fs.readFileSync('./server.conf');
+// console.log(files.toString())
 var temp = files.toString().split('\n');
 let globalConfig = {};
 for(let i = 0 ; i< temp.length; i++){

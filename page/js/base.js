@@ -74,6 +74,10 @@ var newComment = new Vue({
             url:'/queryCommentByCtime',
             method:'get'
         }).then(function(resp){
+            console.log(resp.data)
+            resp.data.forEach(item=>{
+                item.ctime=item.ctime.substring(0,18)
+            })
             newComment.comment_list=resp.data;
         })
 

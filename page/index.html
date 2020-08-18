@@ -15,6 +15,7 @@
             <li><a href="/map.html">地图</a></li>
             <li><a href="/about.html">关于</a></li>
             <li><a href="/guestbook.html">留言</a></li>
+            <li><a href="/blogEdit.html">写博客</a></li>
         </ul>
         <div class ="searchBar">
             <input type="text" placeholder="请输入关键字查找" class = 'search'>
@@ -24,7 +25,7 @@
     <div class="middle">
         <div class="content-left">
             <div class="every-day" id ='day'>
-                <span class = 'day-word' >每日一句</span>
+                <span class = 'day-word' @click="toEveryday">每日一句</span>
                 <pre class = 'day-con' v-html = "getDay"></pre>
             </div>
             <div class="blogList" id = "blogList">
@@ -82,7 +83,7 @@
         </div>
     </div>
     <footer>
-        <a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a><a href="/">Java</a>
+        <a href="/">javascript</a><a href="/">javascript</a><a href="/">javascript</a><a href="/">javascript</a><a href="/">javascript</a><a href="/">javascript</a><a href="/">javascript</a><a href="/">javascript</a><a href="/">javascript</a><a href="/">javascript</a><a href="/">javascript</a><a href="/">javascript</a><a href="/">javascript</a><a href="/">javascript</a><a href="/">javascript</a><a href="/">javascript</a><a href="/">javascript</a><a href="/">javascript</a><a href="/">javascript</a><a href="/">javascript</a><a href="/">javascript</a><a href="/">javascript</a><a href="/">javascript</a><a href="/">javascript</a><a href="/">javascript</a><a href="/">javascript</a><a href="/">javascript</a>
         <p>Copyright © 2010-2020 陈磊个人博客 All rights reserved. 由免费开源的WordPress强力驱动. 鲁ICP备14017955号站长统计</p>
     </footer>
     <script src="./js/axios.js"></script>
