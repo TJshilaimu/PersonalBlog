@@ -16,6 +16,11 @@ var getEveryDay = new Vue({
         }).then(function (resp) {
             getEveryDay.msg = resp.data.data[0].content;
         })
+    },
+    methods:{
+        toEveryday(){
+            location.href='/everydayEdit.html'
+        }
     }
 
 })
@@ -50,14 +55,15 @@ var blogList = new Vue({
                         list[i] = resp.data[i][0]
                     }
                     blogList.blog_list = list;
-                    axios({
-                        method: 'get',
-                        url: '/queryBlogByCount'
-                    }).then(function (resp) {
-                        console.log(resp)
-                        var count = resp.data[0].count
-                        pageList.page_list = Math.ceil(count / (pageList.pageSize));
-                    })
+                    pageList.page_list = Math.ceil(blogList.blog_list.length / (pageList.pageSize));
+                    // axios({
+                    //     method: 'get',
+                    //     url: '/queryBlogByCount'
+                    // }).then(function (resp) {
+                    //     console.log(resp)
+                    //     var count = resp.data[0].count
+                    //     pageList.page_list = Math.ceil(count / (pageList.pageSize));
+                    // })
                 })
             }
         } else {
@@ -67,11 +73,7 @@ var blogList = new Vue({
             }).then(function (resp) {
                 console.log(resp);
                 blogList.blog_list = [...resp.data];
-
-
-
                 // yemian
-
                 // axios({
                 //     method:'get',
                 //     url:'/queryBlogByCount'

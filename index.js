@@ -1,7 +1,8 @@
 var express = require('express');
 var app = new express();
 var globalConfig = require('./config');
-let loader = require('./loader');var bodyParser = require("body-parser");
+let loader = require('./loader');
+var bodyParser = require("body-parser");
 var jsonParser = bodyParser.json();
 app.use(express.static('./' + globalConfig["page_path"]));
 app.listen(12312);

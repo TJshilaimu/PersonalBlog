@@ -22,6 +22,7 @@
 .every-day .day-word {
     display: block;
     color: #783620;
+    cursor: pointer;
 }
 
 
