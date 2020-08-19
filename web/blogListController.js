@@ -129,19 +129,27 @@ function queryBlogByViews(req,res){
     })
 }
 
+
+function queryBlogBySearch(req,res){
+    var params = url.parse(req.url,true).query;
+    blogDao.queryBlogBySearch(params.Search, function (result) {
+        blogDao.queryBlogBySearchCount(params.Search, function (count) {
+            console.log(count)
+            res.writeHead(200);
+            res.end(JSON.stringify({count: count, list: result}));
+        });
+    });
+}
+
+path.set('/queryBlogBySearch',queryBlogBySearch)
 path.set('/queryBlogByViews', queryBlogByViews);
-
-
 path.set('/queryBlogByTag', queryBlogByTag);
-
-
-
 path.set('/queryBlogById', queryBlogById);
-
-
 path.set('/queryBlogByCount', queryBlogByCount);
 path.set('/queryBlogByPage', queryBlogByPage);
-
 path.set('/insertBlog', insertBlog);
+
+
+
 
 module.exports.path = path;

@@ -1,3 +1,24 @@
+var searchBar = new Vue({
+    el:'#searchBar',
+    data:{
+        msg:''
+    },
+    methods:{
+        search(){
+            console.log(this.msg)
+            axios({
+                method:'get',
+                url:'/queryBlogBySearch?Search=' + this.msg
+            }).then( resp => {
+                console.log(0,resp.data.list)
+                var count = resp.data.count[0].count
+            pageList.page_list = Math.ceil(count / (pageList.pageSize));
+            blogList.blog_list=resp.data.list
+            })
+        }
+    }
+})
+
 var getEveryDay = new Vue({
     el: "#day",
     data: {
@@ -93,7 +114,8 @@ var pageList = new Vue({
     data: {
         total: 100,
         pageSize: 3,
-        page_list: null
+        page_list: null,
+        
     },
     methods: {
         changePage(newPage) {

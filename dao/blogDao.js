@@ -91,14 +91,45 @@ function queryBlogByViews(size,success){
     connection.end()
 }
 
+function queryBlogBySearch(search, success) {
+    var sql = "select * from blog where title like concat('%',?,'%') or content like concat('%',?,'%');"
+    var params = [search,search];
+    var connection = dbunite.createConnection();
+    connection.connect();
+    connection.query(sql, params, function (error, result) {
+        if (error) {
+            console.log(error);
+        } else {
+            // console.log(result)
+            success(result);
+        }
+    });
+    connection.end();
+}
+
+function queryBlogBySearchCount(search, success) {
+    var sql = "select count(1) as count from blog where title like concat('%',?,'%') or content like concat('%',?,'%');";
+    var params = [search, search];
+    var connection = dbunite.createConnection();
+    connection.connect();
+    connection.query(sql, params, function (error, result) {
+        if (error) {
+            console.log(1,error);
+        } else {
+            success(result);
+        }
+    });
+    connection.end();
+}
+
+
+
+
 module.exports.queryBlogByViews= queryBlogByViews;
-
-
 module.exports.addViews= addViews;
-
-
 module.exports.insertBlog= insertBlog;
 module.exports.queryBlogById= queryBlogById;
-
 module.exports.queryBlogByPage= queryBlogByPage;
 module.exports.queryBlogByCount= queryBlogByCount;
+module.exports.queryBlogBySearch = queryBlogBySearch;
+module.exports.queryBlogBySearchCount = queryBlogBySearchCount;
