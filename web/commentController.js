@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-06-10 17:03:10
+ * @LastEditTime: 2020-08-19 14:11:36
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \personalBlog\web\commentController.js
+ */
 var path = new Map();
 var commentDao = require('../dao/commentDao');
 const url = require('url');
@@ -21,7 +29,7 @@ function queryRandomCode(req, res) {
         marginTop: 20,
 
     });
-
+    
     res.writeHead(200);
     res.write(JSON.stringify(img));
     res.end();

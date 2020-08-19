@@ -26,8 +26,6 @@ var detail = new Vue({
                 })
             }
         }
-
-
     }
 })
 
@@ -106,7 +104,6 @@ var sendComment = new Vue({
 
             })
         },
-    //
 
     },
     created() {

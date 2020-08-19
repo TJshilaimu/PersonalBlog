@@ -46,7 +46,6 @@ var sendComment = new Vue({
         submit() {
             var comment = document.getElementById('comment').value;
             var setName = document.getElementById('setName').value;
-
             if (sendComment.flag != setName) {
                 alert('验证码错误');
                 sendComment.getCode();

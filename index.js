@@ -1,3 +1,4 @@
+
 var express = require('express');
 var app = new express();
 var globalConfig = require('./config');
@@ -29,6 +30,7 @@ app.get('/queryBlogByTag',loader.get('/queryBlogByTag'));
 app.get('/queryBlogByViews',loader.get('/queryBlogByViews'));
 
 app.get('/queryCommentByCtime',loader.get('/queryCommentByCtime'));
+app.get('/queryBlogBySearch',loader.get('/queryBlogBySearch'));
 
 
 

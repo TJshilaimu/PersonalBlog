@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-06-10 17:03:10
+ * @LastEditTime: 2020-08-19 14:48:14
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \personalBlog\page\index.html
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,9 +25,9 @@
             <li><a href="/guestbook.html">留言</a></li>
             <li><a href="/blogEdit.html">写博客</a></li>
         </ul>
-        <div class ="searchBar">
-            <input type="text" placeholder="请输入关键字查找" class = 'search'>
-            <button class = 'submit'>搜索</button>
+        <div class ="searchBar" id="searchBar">
+            <input type="text" placeholder="请输入关键字查找" v-model='msg' class = 'search'>
+            <button class = 'submit'  @click="search">搜索</button>
         </div>
     </header>
     <div class="middle">
@@ -38,7 +46,6 @@
             <div class="pageList" id = "pageList">
                 <ul>
                     <li v-for= "(item,index) in page_list" @click="changePage(index)">{{item}}</li>
-                    
                 </ul>
             </div>
         </div>
