@@ -5,8 +5,6 @@ var uniteTime = require('../page/unite/uniteTime');
 let insertTagBlogMappingDao = require('../dao/tagBlogMappingDao');
 var url = require('url');
 
-
-
 function insertBlog(req, res) {
     // console.log(req.body)
     // req.on("data", function (data) {

@@ -96,3 +96,6 @@
 .pageList>ul>li:hover{
     background-color: #aaa;
 }
+li.pageColor{
+    color:red;
+}
