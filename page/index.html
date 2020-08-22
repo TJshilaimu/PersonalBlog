@@ -26,8 +26,8 @@
             <li><a href="/blogEdit.html">写博客</a></li>
         </ul>
         <div class ="searchBar" id="searchBar">
-            <input type="text" placeholder="请输入关键字查找" v-model='msg' class = 'search'>
-            <button class = 'submit'  @click="search">搜索</button>
+            <input type="text" placeholder="请输入关键字查找" v-model='msg' class = 'search' @keyup.enter="search">
+            <button class = 'submit'  @click="search" >搜索</button>
         </div>
     </header>
     <div class="middle">
@@ -45,7 +45,7 @@
             </div>
             <div class="pageList" id = "pageList">
                 <ul>
-                    <li v-for= "(item,index) in page_list" @click="changePage(index)">{{item}}</li>
+                    <li v-for= "(item,index) in page_list" @click="changePage(item.pageNum)" :class="{'pageColor':nowPage == item.pageNum}">{{item.text}}</li>
                 </ul>
             </div>
         </div>
